@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { StrictMode, useReducer } from "react";
+import { Form } from "./components/form";
+import { Container } from "./components/shared/container";
+import { List } from "./components/list";
+import { ErrorBoundary } from "./components/error-boundary";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+const App = () => {
+  const [list, updateList] = useReducer(
+    (state, action) => [...state, ...action],
+    []
   );
-}
+  return (
+    <StrictMode>
+      <ErrorBoundary>
+        <Container>
+          <Form updateList={updateList} />
+          <List list={list} />
+        </Container>
+      </ErrorBoundary>
+    </StrictMode>
+  );
+};
 
 export default App;
