@@ -5,15 +5,13 @@ export const Button = styled.button`
   outline: none;
   font-weight: 600;
   cursor: pointer;
-  width: 100%;
+  height: 45px;
+  margin: 6px;
   transition: all 0.3s ease-in-out;
   color: #fff;
   outline: none;
   border-radius: 3px;
-
-  ${({ version }) =>
-    version === "primary"
-      ? `background-color: rgb(50, 93, 209);
-         border-color: rgb(50, 93, 209);`
-      : ""}
+  border: none;
+  background-color: ${({ version }) =>
+    version === "primary" ? "rgb(189, 93, 112)" : "rgb(50, 93, 209)"};
 `;

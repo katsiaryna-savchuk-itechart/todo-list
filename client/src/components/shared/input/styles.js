@@ -10,7 +10,8 @@ export const StyledInput = styled.input`
   padding: 14px 16px;
   border: 1px solid #D2D2D2};
   background-color: #FFFFFF;
-  width: 360px;
+  width: 240px;
+  margin: 5px;
   text-align: left;
   font-size: 14px;
   line-height: 20px;

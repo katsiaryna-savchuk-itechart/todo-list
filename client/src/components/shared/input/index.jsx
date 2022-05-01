@@ -11,10 +11,11 @@ export const Input = ({
   maxLength,
   initialValue,
   onChange,
+  rules,
   ...props
 }) => (
   <Wrapper className={className}>
-    <StyledInput ref={register} name={name} {...props} />
+    <StyledInput {...register(name, rules)} name={name} {...props} />
     {errors && errors[name] && (
       <Error data-testid="input-error-message">{errors[name].message}</Error>
     )}
