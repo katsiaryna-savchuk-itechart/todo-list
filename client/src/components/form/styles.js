@@ -13,7 +13,7 @@ export const Title = styled.h1`
     "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 42px;
-  color: rgb(104, 73, 73);
+  color: #fff;
   font-weight: 600;
 `;
 

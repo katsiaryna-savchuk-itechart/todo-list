@@ -7,6 +7,7 @@ export const Container = styled.div`
 
 export const Wrapper = styled.ul`
   list-style-type: none;
+  padding: 0;
 `;
 
 export const Item = styled.li`

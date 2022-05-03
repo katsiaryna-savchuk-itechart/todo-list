@@ -8,6 +8,7 @@ export const Form = ({ onSubmit }) => {
 
   const handleSubmit = (data) => {
     onSubmit(data);
+    methods.reset();
   };
 
   return (
