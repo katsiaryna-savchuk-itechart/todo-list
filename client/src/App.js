@@ -1,4 +1,5 @@
-import { StrictMode, useState } from "react";
+import { StrictMode, useState, useEffect } from "react";
+import axios from "axios";
 import { Form } from "./components/form";
 import { Container } from "./components/shared/container";
 import { List } from "./components/list";
@@ -7,12 +8,33 @@ import { ErrorBoundary } from "./components/error-boundary";
 const App = () => {
   const [list, updateList] = useState([]);
 
-  const onDeleteItem = (action) =>
-    updateList(list.filter((el) => el.action !== action));
+  useEffect(() => {
+    axios
+      .get("/api/list")
+      .then((res) => updateList(res.data))
+      .catch((e) => console.error(e));
+  }, []);
 
-  const onAddItem = (item) => updateList((prevList) => [...prevList, item]);
+  const onDeleteItem = (id) => {
+    axios
+      .delete(`/api/list/${id}`)
+      .then(() => updateList(list.filter((el) => el.id !== id)))
+      .catch((e) => console.error(e));
+  };
 
-  const onClearAll = () => updateList([]);
+  const onAddItem = (item) => {
+    axios
+      .post("/api/list", item)
+      .then((res) => updateList((prevList) => [...prevList, res.data]))
+      .catch((e) => console.error(e));
+  };
+
+  const onClearAll = () => {
+    axios
+      .delete("/api/list")
+      .then(() => updateList([]))
+      .catch((e) => console.error(e));
+  };
 
   return (
     <StrictMode>

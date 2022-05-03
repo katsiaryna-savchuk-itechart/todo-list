@@ -11,13 +11,13 @@ import {
 export const List = ({ list, onDeleteItem, onClear }) => (
   <Container>
     <Wrapper>
-      {list.map(({ action, date }) => (
-        <Item key={action}>
+      {list.map(({ action, date, id }) => (
+        <Item key={id}>
           <TextWrapper>
             <ActionName>{action}</ActionName>
             <Date>{date}</Date>
           </TextWrapper>
-          <span onClick={() => onDeleteItem(action)}>x</span>
+          <span onClick={() => onDeleteItem(id)}>x</span>
         </Item>
       ))}
     </Wrapper>
