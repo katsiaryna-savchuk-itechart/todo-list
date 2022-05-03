@@ -11,7 +11,7 @@ import {
 export const List = ({ list, onDeleteItem, onClear }) => (
   <Container>
     <Wrapper>
-      {list.map(({ action, date, id }) => (
+      {list.length && list.map(({ action, date, id }) => (
         <Item key={id}>
           <TextWrapper>
             <ActionName>{action}</ActionName>
